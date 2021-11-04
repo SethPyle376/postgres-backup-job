@@ -26,6 +26,7 @@ CMD /usr/sbin/sshd -D
 EXPOSE 22
 
 #=========POSTGRES========#
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get install -y gnupg2
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic"-pgdg main | tee  /etc/apt/sources.list.d/pgdg.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7FCC7D46ACCC4CF8
