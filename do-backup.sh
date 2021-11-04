@@ -10,8 +10,6 @@ file_name="pg-backup-"$date1".tar.gz"
 #Compressing backup file for upload
 tar -zcvf $file_name pg-backup
 
-discord_url='$DISCORD_WEBHOOK'
-
 notification_msg="Postgres backup failed."
 filesize=$(stat -c %s $file_name)
 mfs=10
@@ -21,4 +19,4 @@ aws s3 cp pg-backup-$date1.tar.gz $S3_BUCKET
 notification_msg="Postgres backup successful, compressed filesize was $filesize"
 fi
 
-curl -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \"$notification_msg\"}" $discord_url
+curl -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \"$notification_msg\"}" $DISCORD_WEBHOOK
