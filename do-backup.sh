@@ -4,7 +4,7 @@
 cd /home/root
 date1=$(date +%Y%m%d-%H%M)
 mkdir pg-backup
-PGPASSWORD="$PG_PASS" pg_dumpall -h postgresql-postgresql.devtroncd -p 5432 -U postgres -U postgres > pg-backup/postgres-db.tar
+PGPASSWORD="$PG_PASS" pg_dumpall -h $PG_HOST -p $PG_PORT -U $PG_USER > pg-backup/postgres-db.tar
 file_name="pg-backup-"$date1".tar.gz"
 
 #Compressing backup file for upload
