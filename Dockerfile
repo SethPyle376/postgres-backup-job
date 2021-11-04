@@ -13,7 +13,7 @@ RUN echo 'root:password' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # download and install pip
-RUN curl -sO https://bootstrap.pypa.io/get-pip.py
+RUN curl -sO https://bootstrap.pypa.io/pip/2.7/get-pip.py
 RUN python get-pip.py
 
 # install AWS CLI
