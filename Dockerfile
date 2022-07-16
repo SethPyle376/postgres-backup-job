@@ -6,7 +6,7 @@ RUN apt-get update && apt-get upgrade -y
 
 #=========POSTGRES========#
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get install -y postgresql-client
+RUN apt-get install -y postgresql-client curl
 
 #Make sure that your shell script file is in the same folder as your dockerfile while running the docker build command as the below command will copy the file to the /home/root/ folder for execution. 
 COPY ./do-backup.sh /home/root/ 
