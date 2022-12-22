@@ -5,13 +5,17 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get upgrade -y
 
 # download and install pip
+RUN apt-get install curl -y
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update 
 RUN apt-get install python3.11 -y
 
+RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py -s
+RUN python3.11 get-pip.py
+
 # install AWS CLI
-RUN pip install awscli
+RUN pip3 install awscli
 
 #=========POSTGRES========#
 ARG DEBIAN_FRONTEND=noninteractive
