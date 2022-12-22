@@ -11,7 +11,7 @@ RUN apt update
 RUN apt-get install python3.11 -y
 
 # install AWS CLI
-RUN pip3 install awscli
+RUN pip install awscli
 
 #=========POSTGRES========#
 ARG DEBIAN_FRONTEND=noninteractive
