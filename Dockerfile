@@ -8,7 +8,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update 
-RUN apt-get install python3.11
+RUN apt-get install python3.11 -y
 RUN python -m ensurepip --upgrade
 
 # install AWS CLI
