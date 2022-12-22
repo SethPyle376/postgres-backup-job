@@ -4,6 +4,13 @@ FROM ubuntu:18.04
 # Run the Update
 RUN apt-get update && apt-get upgrade -y
 
+# download and install pip
+ RUN curl -sO https://bootstrap.pypa.io/pip/2.7/get-pip.py
+ RUN python get-pip.py
+
+ # install AWS CLI
+ RUN pip install awscli
+
 #=========POSTGRES========#
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get install -y postgresql-client curl
