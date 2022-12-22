@@ -9,10 +9,10 @@ RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update 
 RUN apt-get install python3.11 -y
-RUN python -m ensurepip --upgrade
+RUN python3 -m ensurepip --upgrade
 
 # install AWS CLI
-RUN pip install awscli
+RUN pip3 install awscli
 
 #=========POSTGRES========#
 ARG DEBIAN_FRONTEND=noninteractive
