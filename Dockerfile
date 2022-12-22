@@ -5,6 +5,7 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get upgrade -y
 
 # download and install pip
+RUN apt-get install python3.8
 RUN python -m ensurepip --upgrade
 
 # install AWS CLI
