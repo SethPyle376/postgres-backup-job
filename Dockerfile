@@ -5,7 +5,9 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get upgrade -y
 
 # download and install pip
-RUN apt-get install python3.8
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt update 
+RUN apt-get install python3.11
 RUN python -m ensurepip --upgrade
 
 # install AWS CLI
