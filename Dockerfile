@@ -5,11 +5,10 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get upgrade -y
 
 # download and install pip
- RUN curl -sO https://bootstrap.pypa.io/pip/2.7/get-pip.py
- RUN python get-pip.py
+RUN python -m ensurepip --upgrade
 
- # install AWS CLI
- RUN pip install awscli
+# install AWS CLI
+RUN pip install awscli
 
 #=========POSTGRES========#
 ARG DEBIAN_FRONTEND=noninteractive
