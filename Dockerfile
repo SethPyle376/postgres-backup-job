@@ -12,7 +12,7 @@ RUN apt update
 RUN apt-get install python3 -y
 
 RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py -s
-RUN python3.11 get-pip.py
+RUN python3 get-pip.py
 
 # install AWS CLI
 RUN pip3 install awscli
