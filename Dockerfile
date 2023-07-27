@@ -9,7 +9,7 @@ RUN apt-get install curl -y
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update 
-RUN apt-get install python3.11 -y
+RUN apt-get install python3 -y
 
 RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py -s
 RUN python3.11 get-pip.py
