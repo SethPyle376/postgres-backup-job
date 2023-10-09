@@ -1,7 +1,7 @@
-ARG ALPINE_VERSION=3.12.0
+ARG ALPINE_VERSION=3.18.0
 FROM alpine:${ALPINE_VERSION}
 
-RUN apk add --no-cache postgresql-client zip tini aws-cli curl
+RUN apk add --no-cache zip tini aws-cli curl coreutils postgresql15-client
 
 #=========POSTGRES========#
 #Make sure that your shell script file is in the same folder as your dockerfile while running the docker build command as the below command will copy the file to the /home/root/ folder for execution. 
