@@ -1,28 +1,9 @@
-#file-name: dockerfile
-FROM ubuntu:18.04
+ARG ALPINE_VERSION=3.12.0
+FROM alpine:${ALPINE_VERSION}
 
-# Run the Update
-RUN apt-get update && apt-get upgrade -y
-
-# download and install pip
-RUN apt-get install curl -y
-RUN apt-get install software-properties-common -y
-RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt update 
-RUN apt-get install python3 -y
-
-RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py -s
-RUN python3 get-pip.py
-
-# install AWS CLI
-RUN pip3 install awscli
+RUN apk add --no-cache postgresql-client zip tini aws-cli curl
 
 #=========POSTGRES========#
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-RUN wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo tee /etc/apt/trusted.gpg.d/pgdg.asc &>/dev/null
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get install -y postgresql-client curl
-
 #Make sure that your shell script file is in the same folder as your dockerfile while running the docker build command as the below command will copy the file to the /home/root/ folder for execution. 
 COPY ./do-backup.sh /home/root/ 
 #Copying script file
