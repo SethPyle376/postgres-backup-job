@@ -1,5 +1,4 @@
-#file-name: postgres-backup.sh
-#!/bin/bash
+#!/bin/sh
 
 cd /home/root
 mkdir pg-backup

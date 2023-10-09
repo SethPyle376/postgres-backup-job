@@ -41,7 +41,7 @@ jobs:
           # Note: tags has to be all lower-case
           tags: |
             sethpyle/pg-backup:latest
-            sethpyle/pg-backup:2.0.0
+            sethpyle/pg-backup:2.0.1
           # build on feature branches, push only on master branch
           push: ${{ github.ref == 'refs/heads/master' }}
           platforms: linux/amd64, linux/arm64
