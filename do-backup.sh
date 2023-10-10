@@ -22,4 +22,4 @@ aws s3 cp pg-backup-$date1.tar.gz $S3_BUCKET
 notification_msg="Postgres backup successful, compressed filesize was $pretty_filesize"
 fi
 
-curl -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \"$notification_msg\"}" $DISCORD_WEBHOOK
+curl -i -X POST --data "$notification_msg" $DISCORD_WEBHOOK
